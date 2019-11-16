@@ -12,16 +12,10 @@ namespace Assets.Scripts.UI.Menu
     {
         [SerializeField] private MainMenuUIAnimations uiAnimations;
 
-        [Header("Buttons")] [SerializeField] private List<Button> entryMenuButtons;
-
+        [Header("Buttons")]
+        [SerializeField] private List<Button> entryMenuButtons;
+        [SerializeField] private List<Button> exitButtons;
         private bool exitMode;
-
-        private Transform typesPanel;
-
-        [SerializeField] private List<GameObject> planetList;
-
-        private int characterIndex;
-        private string slotId;
 
         private void Start()
         {
@@ -35,7 +29,6 @@ namespace Assets.Scripts.UI.Menu
         public MainMenuUIMenager(List<Button> entryMenuButtons, Transform typesPanel, MainMenuUIAnimations uiAnimations)
         {
             this.entryMenuButtons = entryMenuButtons;
-            this.typesPanel = typesPanel;
             this.uiAnimations = uiAnimations;
         }
 
@@ -79,11 +72,14 @@ namespace Assets.Scripts.UI.Menu
             {
                 uiAnimations.ExitUIAnimation(false);
                 foreach (var button in entryMenuButtons) button.interactable = false;
+                foreach (var button in exitButtons) button.interactable = true;
             }
             else
             {
                 uiAnimations.ExitUIAnimation(true);
                 foreach (var button in entryMenuButtons) button.interactable = true;
+                foreach (var button in exitButtons) button.interactable = false;
+
             }
         }
 
