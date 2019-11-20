@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 
 public class SimulationButton : MonoBehaviour
 {
+    [SerializeField] public GameObject SimulatorDriver = null;
     public SimulationsPanel SimulationsPanel;
     [SerializeField] public TextAsset TextAsset;
     [SerializeField] public GameObject Button;
@@ -39,6 +40,8 @@ public class SimulationButton : MonoBehaviour
         SimulationsPanel.BasalMetabolicRate.text = RoundValue(patient.BasalMetabolicRate.ScalarPower.Value).ToString() + " " + patient.BasalMetabolicRate.ScalarPower.Unit;
         SimulationsPanel.BloodVolumeBaseline.text = RoundValue(patient.BloodVolumeBaseline.ScalarVolume.Value).ToString() + " " + patient.BloodVolumeBaseline.ScalarVolume.Unit;
 
+        SimulatorDriver = GameObject.FindGameObjectWithTag("SimulatorDriver");             
+        SimulatorDriver.GetComponent<SimulatorDriver>().TextAsset = TextAsset;
     }
 
     public static decimal RoundValue(double? x)

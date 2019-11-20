@@ -7,7 +7,7 @@ public class SimulationsPanel : MonoBehaviour
 {
     [SerializeField] public List<TextAsset> simulationFiles;
     [SerializeField] private GameObject prototypeItem;
-
+    
     public Transform ContentList;
 
     [Header("Description Panel")]

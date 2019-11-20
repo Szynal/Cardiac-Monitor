@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/HeartBeatMonitor.unity
-    guid: 87b022ff02beac841bd08aa77488b874
+  - enabled: 1
+    path: Assets/Scenes/UI/MainMenu.unity
+    guid: e5f5e87851d2eae45805893212b95f61
+  - enabled: 1
+    path: Assets/Resources/AssetsStore/PulsePhysiologyEngine/Demos/Scenes/VitalsMonitor.unity
+    guid: 93effcaeab77145d78ddca48a8af0c4b
   m_configObjects: {}

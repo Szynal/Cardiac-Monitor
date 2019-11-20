@@ -14,7 +14,6 @@ public class PulseEngineDriver: PulseDataSource
 {
     public TextAsset initialStateFile;  // Initial stable state to load
     public SerializationFormat serializationFormat; // state file format
-    public PulseData test;
 
     [Range(0.02f, 2.0f)]
     public double timeStep = 0.02;      // Simulation time step
@@ -52,6 +51,12 @@ public class PulseEngineDriver: PulseDataSource
     // Called when application or editor opens
     void Awake()
     {
+        GameObject simulatorDriver = GameObject.FindGameObjectWithTag("SimulatorDriver");
+        if (simulatorDriver != null)
+        {
+            initialStateFile = simulatorDriver.GetComponent<SimulatorDriver>().TextAsset;
+        }
+
         // Ensure we have a data container
         if (data == null)
             data = new PulseData();
@@ -65,7 +70,6 @@ public class PulseEngineDriver: PulseDataSource
         for (int fieldId = 0; fieldId < pulseDataFields.Length; ++fieldId)
             data.valuesTable.Add(new FloatList());
 
-        test = data;
     }
 
     // Called at the first frame when the component is enabled

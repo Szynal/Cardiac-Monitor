@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ea549e8e506cb4f929a8be77b27da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SimulatorDriver: {fileID: 8658745926937489611, guid: 05c4ded8ff182464d9cd5c17ae8c7599,
+    type: 3}
   SimulationsPanel: {fileID: 0}
   TextAsset: {fileID: 0}
   Button: {fileID: 6709357818196760178}

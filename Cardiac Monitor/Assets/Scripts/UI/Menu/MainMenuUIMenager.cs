@@ -144,7 +144,7 @@ namespace Assets.Scripts.UI.Menu
         [UsedImplicitly]
         public void CreateNewInstance_ButtonClick()
         {
-            SceneManager.LoadScene("Desert");
+            SceneManager.LoadScene("VitalsMonitor");
         }
 
         [UsedImplicitly]
