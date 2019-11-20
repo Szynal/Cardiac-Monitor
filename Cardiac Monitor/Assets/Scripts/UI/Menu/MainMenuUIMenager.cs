@@ -10,8 +10,9 @@ namespace Assets.Scripts.UI.Menu
 {
     public class MainMenuUIMenager : MonoBehaviour
     {
-        [SerializeField] private MainMenuUIAnimations uiAnimations;
 
+        [SerializeField] private MainMenuUIAnimations uiAnimations;
+        [SerializeField] private Transform graphy;
         [Header("Buttons")]
         [SerializeField] private List<Button> entryMenuButtons;
         [SerializeField] private List<Button> exitButtons;
@@ -53,8 +54,14 @@ namespace Assets.Scripts.UI.Menu
         [UsedImplicitly]
         public void Options_ButtonClick()
         {
-            if (exitMode) return;
+            if (exitMode)
+            {
+                graphy.gameObject.SetActive(false);
+                return;
+            }
+
             uiAnimations?.OptionsUIAnimation();
+            graphy.gameObject.SetActive(true);
         }
 
         [UsedImplicitly]
@@ -116,6 +123,7 @@ namespace Assets.Scripts.UI.Menu
         {
             if (exitMode) return;
             uiAnimations.OptionsPanel_ReturnUIAnimation();
+            graphy.gameObject.SetActive(false);
         }
 
         [UsedImplicitly]

@@ -14,6 +14,7 @@ public class PulseEngineDriver: PulseDataSource
 {
     public TextAsset initialStateFile;  // Initial stable state to load
     public SerializationFormat serializationFormat; // state file format
+    public PulseData test;
 
     [Range(0.02f, 2.0f)]
     public double timeStep = 0.02;      // Simulation time step
@@ -41,10 +42,6 @@ public class PulseEngineDriver: PulseDataSource
         "Blood Volume (mL)"
     };
 
-
-    // MARK: Monobehavior methods
-
-    // Called when the inspector inputs are modified
     void OnValidate()
     {
         // Round down to closest factor of 0.02. Need to use doubles due to
@@ -67,6 +64,8 @@ public class PulseEngineDriver: PulseDataSource
         data.valuesTable = new List<FloatList>(pulseDataFields.Length);
         for (int fieldId = 0; fieldId < pulseDataFields.Length; ++fieldId)
             data.valuesTable.Add(new FloatList());
+
+        test = data;
     }
 
     // Called at the first frame when the component is enabled
