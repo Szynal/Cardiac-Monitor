@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UI/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: e5f5e87851d2eae45805893212b95f61
   - enabled: 1
-    path: Assets/Resources/AssetsStore/PulsePhysiologyEngine/Demos/Scenes/VitalsMonitor.unity
+    path: Assets/Scenes/CardiacMonitor.unity
     guid: 93effcaeab77145d78ddca48a8af0c4b
   m_configObjects: {}
