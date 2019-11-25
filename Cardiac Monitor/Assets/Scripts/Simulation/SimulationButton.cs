@@ -16,11 +16,26 @@ public class SimulationButton : MonoBehaviour
     [SerializeField] public GameObject Button;
     [SerializeField] public Text ButtonText;
     private SimulationData simulationData;
+    public string Path;
+    public string BuildPath;
+
+    private void Start()
+    {
+#if UNITY_EDITOR
+        Path = AssetDatabase.GetAssetPath(TextAsset);
+        BuildPath = TextAsset.name;
+#endif
+    }
 
     public void LoadDataFromJson()
     {
-        string path = AssetDatabase.GetAssetPath(TextAsset);
-        StreamReader reader = new StreamReader(path);
+        StreamReader reader;
+
+        reader = new StreamReader(Application.dataPath + "/StreamingAssets/" + BuildPath + ".json");
+#if UNITY_EDITOR
+        reader = new StreamReader(Path);
+#endif
+        Debug.Log(Application.dataPath + "/StreamingAssets/ " + BuildPath + ".json");
         string json = reader.ReadToEnd();
         reader.Close();
 
@@ -40,7 +55,7 @@ public class SimulationButton : MonoBehaviour
         SimulationsPanel.BasalMetabolicRate.text = RoundValue(patient.BasalMetabolicRate.ScalarPower.Value).ToString() + " " + patient.BasalMetabolicRate.ScalarPower.Unit;
         SimulationsPanel.BloodVolumeBaseline.text = RoundValue(patient.BloodVolumeBaseline.ScalarVolume.Value).ToString() + " " + patient.BloodVolumeBaseline.ScalarVolume.Unit;
 
-        SimulatorDriver = GameObject.FindGameObjectWithTag("SimulatorDriver");             
+        SimulatorDriver = GameObject.FindGameObjectWithTag("SimulatorDriver");
         SimulatorDriver.GetComponent<SimulatorDriver>().TextAsset = TextAsset;
     }
 

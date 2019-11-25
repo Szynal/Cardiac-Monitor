@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Heart : MonoBehaviour
 {
@@ -32,10 +33,10 @@ public class Heart : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.transform.CompareTag("Heart") == false)
+                if (hit.transform.CompareTag("Heart") == false)
                 {
-                    return;      
-                }        
+                    return;
+                }
             }
 
             float h = horizontalSpeed * Input.GetAxis("Mouse X");
@@ -51,14 +52,14 @@ public class Heart : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.CompareTag("Heart")==false)
+                if (hit.transform.CompareTag("Heart") == false)
                 {
-                    return;                    
+                    return;
                 }
             }
             {
-            if (cameraDistance > maxScrollUpHeartDistance)
-                transform.position += CalculateDirection(Camera) * 0.5f;
+                if (cameraDistance > maxScrollUpHeartDistance)
+                    transform.position += CalculateDirection(Camera) * 0.5f;
             }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -87,6 +88,11 @@ public class Heart : MonoBehaviour
         Vector3 heading = target.position - transform.position;
         float distance = heading.magnitude;
         return heading / distance;
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

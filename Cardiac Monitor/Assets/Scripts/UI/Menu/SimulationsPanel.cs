@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SimulationsPanel : MonoBehaviour
 {
     [SerializeField] public List<TextAsset> simulationFiles;
-    [SerializeField] private GameObject prototypeItem;
+    [SerializeField] private GameObject prototypeItem = null;
     
     public Transform ContentList;
 
@@ -28,7 +28,7 @@ public class SimulationsPanel : MonoBehaviour
 
     private void Awake()
     {
-         CreateSimulationButtons();
+         //CreateSimulationButtons();
     }
 
     public void CreateSimulationButtons()

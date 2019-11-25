@@ -12,7 +12,7 @@ namespace Assets.Scripts.UI.Menu
     {
 
         [SerializeField] private MainMenuUIAnimations uiAnimations;
-        [SerializeField] private Transform graphy;
+        [SerializeField] private Transform graphy = null;
         [Header("Buttons")]
         [SerializeField] private List<Button> entryMenuButtons;
         [SerializeField] private List<Button> exitButtons;
@@ -27,10 +27,11 @@ namespace Assets.Scripts.UI.Menu
 
         #region Init
 
-        public MainMenuUIMenager(List<Button> entryMenuButtons, Transform typesPanel, MainMenuUIAnimations uiAnimations)
+        public MainMenuUIMenager(List<Button> entryMenuButtons, List<Button> exitButtons, Transform typesPanel, MainMenuUIAnimations uiAnimations)
         {
             this.entryMenuButtons = entryMenuButtons;
             this.uiAnimations = uiAnimations;
+            this.exitButtons = exitButtons;
         }
 
         #endregion
@@ -144,7 +145,7 @@ namespace Assets.Scripts.UI.Menu
         [UsedImplicitly]
         public void CreateNewInstance_ButtonClick()
         {
-            SceneManager.LoadScene("VitalsMonitor");
+            SceneManager.LoadScene("CardiacMonitor");
         }
 
         [UsedImplicitly]
